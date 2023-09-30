@@ -1,0 +1,13 @@
+<div class="centergrid">
+  <ion-label> <ion-avatar>
+      <img src="{{ruta}}" alt="{{text}}" *ngIf="email!='' || ruta!=''">
+
+      <div class="imagenredonda" *ngIf="ruta==''">
+        {{text}}
+      </div>
+    </ion-avatar>
+  </ion-label>
+</div>
+<div class="centergrid">
+  <ion-label>{{nombre}}</ion-label>
+</div>

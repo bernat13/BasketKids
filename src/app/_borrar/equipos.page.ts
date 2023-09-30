@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { AddComponent } from '../modals/add/add.component';
 
 @Component({
   selector: 'app-equipos',
@@ -23,7 +25,10 @@ cargar(){
   this.listaEquipos= JSON.parse(localStorage.getItem("lista") || '[]');
 
 }
-  constructor() {
+  constructor(
+    private modalController: ModalController
+  ) {
+   
     this.listaEquipos= [];
    // 
     this.formulario = new FormGroup({
@@ -37,12 +42,26 @@ cargar(){
   ngOnInit(){
 this.cargar();    
   }
-  onSubmit() {
- this.listaEquipos.push(this.formulario.value.nombre)
- this.guardar() ;
-  }
+//   onSubmit() {
+//  this.listaEquipos.push(this.formulario.value.nombre)
+//  this.guardar() ;
+//   }
   onDelete(value: any) {
     this.listaEquipos = this.listaEquipos.filter(e => e != value);
     this.guardar() ;
+  }
+  async modalAddEquipo() {
+    const modal = await this.modalController.create({
+      component: AddComponent,
+      componentProps: {tipo:'Equipo'}
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.listaEquipos.push(data);
+      this.guardar();
+    }
   }
 }
