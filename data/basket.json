@@ -1,0 +1,38 @@
+{
+    "jugadores": [
+        {
+            "id": 1,
+            "nombre": "Omar",
+            "imagen":"",
+            "email":"bernat13@gmail.com",
+            "dorsal":"55",
+            "categoria": "Mini"
+        },
+        {
+            "id": 1,
+            "nombre": "Adam",
+            "imagen":"",
+            "email":"",
+            "dorsal":"30",
+            "categoria": "PreMini"
+        },
+        {
+            "id": 1,
+            "nombre": "Nuria",
+            "imagen":"",
+            "email":"",
+            "dorsal":"12",
+            "categoria": "Baby"
+        }
+    ],
+    "equipos":[{
+        "id": 1,
+        "nombre": "Betis Mini",
+        "categoria": "Mini"
+    },
+    {
+        "id": 2,
+        "nombre": "Betis Premini",
+        "categoria": "Premini"
+    }]
+}
