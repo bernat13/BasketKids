@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,15 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'partidos',
-    loadChildren: () => import('./partidos/list-partidos/list-partidos.module').then( m => m.ListPartidosPageModule)
+    loadChildren: () => import('./pages/partidos/list-partidos/list-partidos.module').then( m => m.ListPartidosPageModule)
   },
   {
     path: 'partidos/:id',
-    loadChildren: () => import('./partidos/vista-partido/vista-partido.module').then( m => m.VistaPartidoPageModule)
+    loadChildren: () => import('./pages/partidos/vista-partido/vista-partido.module').then( m => m.VistaPartidoPageModule)
   },
   {
     path: 'equipos/:id',
-    loadChildren: () => import('./equipos/detail-equipo/detail-equipo.module').then( m => m.DetailEquipoPageModule)
+    loadChildren: () => import('./pages/equipos/detail-equipo/detail-equipo.module').then( m => m.DetailEquipoPageModule)
   }
   // {
   //   path: 'partidos',
