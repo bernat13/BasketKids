@@ -15,4 +15,8 @@ export class SJugadoresService {
   {
     return this.http.get<IJugadores>(`${environment.apiURL}/jugadores`);
   }
+  get(id:number): Observable<IJugadores>
+  {
+    return this.http.get<IJugadores>(`${environment.apiURL}/jugadores/` + id);
+  }
 }

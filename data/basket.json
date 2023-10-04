@@ -6,33 +6,110 @@
             "imagen":"",
             "email":"bernat@gmail.com",
             "dorsal":"55",
-            "categoria": "Mini"
+            "categoria": "Mini",
+            "anyoNacimiento":"2018",
+            "idequipo":"1",
+            "nombreEquipo":"Betis Salesianos"
+            
         },
         {
-            "id": 1,
+            "id": 2,
             "nombre": "Adam",
             "imagen":"",
             "email":"",
             "dorsal":"30",
-            "categoria": "PreMini"
+            "categoria": "PreMini",
+            "anyoNacimiento":"2018",
+            "idequipo":"2",
+            "nombreEquipo":"Betis Salesianos"
+            
+            
         },
         {
-            "id": 1,
+            "id": 3,
             "nombre": "Nuria",
             "imagen":"",
             "email":"",
             "dorsal":"12",
-            "categoria": "Baby"
+            "categoria": "Baby",
+            "anyoNacimiento":"2018",
+            "idequipo":"3",
+            "nombreEquipo":"Betis Salesianos"
+            
         }
     ],
     "equipos":[{
         "id": 1,
         "nombre": "Betis Mini",
-        "categoria": "Mini"
+        "categoria": "Mini",
+        "jugadores":[
+            {
+                "nombre":"Adam",
+                "dorsal":"30",
+                "idJugador":"2"
+            }
+        ]
     },
     {
         "id": 2,
         "nombre": "Betis Premini",
-        "categoria": "Premini"
-    }]
+        "categoria": "Premini",
+        "jugadores":[
+            {
+                "nombre":"Adam",
+                "dorsal":"30",
+                "idJugador":"2"
+            }
+        ]
+    }],
+    "partidos":[
+        {
+            "idPartido":"1",
+            "fecha":"29/09/2023",
+            "equipo_v":"PreMini Salesianos Betis",
+            "equipo_l":"CB Fresas",
+            "marcador_v":"123",
+            "marcador_l":"110",
+            "logo_l":"../../assets/logos/fresas.jpg",
+            "logo_v":"../../assets/logos/betis.jpg",
+            "jugadas":[
+                {
+                    "segundos":"0",
+                    "idjugador":"",
+                    "nombreJugador":"",
+                    "dorsal":"",
+                    "tipoJugada":"inicioPartido",
+                    "puntos":"2",
+                    "idEquipo":"2",
+                    "cuarto":"1",
+                    "idPartido":"1"
+
+                },
+                {
+                    "segundos":"",
+                    "idjugador":"",
+                    "nombreJugador":"",
+                    "dorsal":"",
+                    "tipoJugada":"inicioCuarto",
+                    "puntos":"",
+                    "idEquipo":"",
+                    "cuarto":"1",
+                    "idPartido":"1"
+
+                },
+                {
+                    "segundos":"30",
+                    "idjugador":"2",
+                    "nombreJugador":"Adam",
+                    "dorsal":"30",
+                    "tipoJugada":"canasta2",
+                    "puntos":"2",
+                    "idEquipo":"2",
+                    "cuarto":"1",
+                    "idPartido":"1"
+                }
+            ]
+        }
+    ],
+    "tiposJugada":["inicioPartido","inicioCuarto","finCuarto","finPartido","falta","canasta2","tirolibre","triple","tapon","robo","asistencia"]
 }

@@ -5,5 +5,8 @@ export interface IJugadores {
     imagen: String,
     email: String,
     dorsal: Number,
-    categoria: String
+    categoria: String,
+    anyoNacimiento: Number,
+    idequipo:Number,
+    nombreEquipo:string
 }
