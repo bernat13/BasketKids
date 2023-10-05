@@ -34,7 +34,7 @@
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col *ngFor="let j of jugadores">
+          <ion-col *ngFor="let j of jugadores" [routerLink]="['/jugadores/',j.id]">
             <itemcircle nombre="{{j.nombre}}" text="{{j.dorsal}}" email="{{j.email}}"  ></itemcircle>
           </ion-col>
         </ion-row>
@@ -68,17 +68,11 @@
    <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col  [routerLink]="['/equipos/',1]">
-            <itemcircle nombre="Mini" ruta="../../assets/logos/betis.jpg" />
+          <ion-col *ngFor="let e of equipos" [routerLink]="['/equipos/',e.id]">
+            <itemcircle nombre="{{e.nombre}}" ruta="{{e.logo}}" />
           </ion-col>
          
-          <ion-col  [routerLink]="['/equipos/',2]">
-            <itemcircle nombre="Premini" ruta="../../assets/logos/betis.jpg" />
-          </ion-col>
-
-          <ion-col  [routerLink]="['/equipos/',3]">
-            <itemcircle nombre="Baby" ruta="../../assets/logos/betis.jpg" />
-          </ion-col>
+         
         </ion-row>
         <ion-row>
           <ion-col>ver todos</ion-col>

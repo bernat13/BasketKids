@@ -18,10 +18,11 @@
       <ion-title size="large">detail-equipo</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card *ngIf="equipo!=undefined">
+  <ion-card *ngIf="jugador!=undefined">
     <ion-card-header>
-      <ion-card-title>{{equipo.nombre}}</ion-card-title>
-      <ion-card-subtitle>Categoria: {{equipo.categoria}}</ion-card-subtitle>
+      <itemcircle  text="{{jugador.dorsal}}" email="{{jugador.email}}"  ></itemcircle>
+      <ion-card-title>{{jugador.nombre}}</ion-card-title>
+      <ion-card-subtitle>Categoria: {{jugador.categoria}}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
@@ -31,19 +32,12 @@
   </ion-card>
   <ion-buttons>
 
-    <ion-title>Jugadores/as</ion-title>
+    <ion-title>Estadisticas</ion-title>
     <ion-button slot="end">
       <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
     </ion-button>
 
   </ion-buttons>
   
-  <ion-list *ngIf="equipo!=undefined">
-    <ion-item *ngFor="let j of equipo.jugadores" [routerLink]="['/jugadores/',j.idJugador]">
-      
-      <ion-label slot="start"> <itemcircle  text="{{j.dorsal}}" tamano="30px"  ></itemcircle></ion-label>
-      <ion-label>   {{j.nombre}}</ion-label>
-    </ion-item>
-   </ion-list>
 
 </ion-content>

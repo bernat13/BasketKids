@@ -22,6 +22,16 @@ const routes: Routes = [
   {
     path: 'equipos/:id',
     loadChildren: () => import('./pages/equipos/detail-equipo/detail-equipo.module').then( m => m.DetailEquipoPageModule)
+  },
+
+  {
+    path: 'jugadores',
+    loadChildren: () => import('./jugadores/list-jugadores/list-jugadores.module').then( m => m.ListJugadoresPageModule)
+  },
+
+  {
+    path: 'jugadores/:id',
+    loadChildren: () => import('./jugadores/detail-jugador/detail-jugador.module').then( m => m.DetailJugadorPageModule)
   }
   // {
   //   path: 'partidos',

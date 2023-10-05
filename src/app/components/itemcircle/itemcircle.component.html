@@ -2,7 +2,7 @@
  
       <img src="{{ruta}}" alt="{{text}}" *ngIf="email!='' || ruta!=''" width="65px">
 
-      <div class="imagenredonda" *ngIf="ruta==''">
+      <div class="imagenredonda" *ngIf="ruta==''" [ngStyle]="{'width':tamano,'height':tamano,'font-size':tamanofuente}">
         {{text}}
       </div>
     

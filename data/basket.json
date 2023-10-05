@@ -4,7 +4,7 @@
             "id": 1,
             "nombre": "Omar",
             "imagen":"",
-            "email":"bernat@gmail.com",
+            "email":"",
             "dorsal":"55",
             "categoria": "Mini",
             "anyoNacimiento":"2018",
@@ -42,6 +42,7 @@
         "id": 1,
         "nombre": "Betis Mini",
         "categoria": "Mini",
+        "logo":"../../assets/logos/betis.jpg",
         "jugadores":[
             {
                 "nombre":"Adam",
@@ -54,6 +55,7 @@
         "id": 2,
         "nombre": "Betis Premini",
         "categoria": "Premini",
+        "logo":"../../assets/logos/betis.jpg",
         "jugadores":[
             {
                 "nombre":"Adam",

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetailEquipoPageRoutingModule } from './detail-equipo-routing.module';
+import { DetailJugadorPageRoutingModule } from './detail-jugador-routing.module';
 
-import { DetailEquipoPage } from './detail-equipo.page';
+import { DetailJugadorPage } from './detail-jugador.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailEquipoPageRoutingModule, ComponentsModule
+    DetailJugadorPageRoutingModule,ComponentsModule
   ],
-  declarations: [DetailEquipoPage]
+  declarations: [DetailJugadorPage]
 })
-export class DetailEquipoPageModule {}
+export class DetailJugadorPageModule {}

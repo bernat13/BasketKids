@@ -11,15 +11,25 @@ export class ItemcircleComponent  implements OnInit {
    @Input() text!: string
    @Input() nombre!: string
    @Input() ruta!: string
+   @Input() tamano! :string;
+   tamanofuente:string
   //email!: string
    constructor() { 
      this.ruta='';
-   this.email=''
+   this.email='';
+   this.tamanofuente='';
+  this.tamano='';
+   
  }
 
 ngOnInit() {
    if (this.email != '') {
     this.ruta = 'https://www.gravatar.com/avatar/' + Md5.hashStr(this.email);;
+   }
+   if (this.tamano == ''){
+    console.log("undefined!!!");
+    this.tamano='65px';
+    this.tamanofuente='xx-large';
    }
 }
 

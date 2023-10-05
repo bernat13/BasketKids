@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SJugadoresService } from '../../services/sjugadores.service';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
+import { SEquiposService } from 'src/app/services/sequipos.service';
 
 @Component({
   selector: 'app-home',
@@ -9,31 +10,41 @@ import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 })
 export class HomePage {
 
-  jugadores:any;
-  constructor(private sjug: SJugadoresService, private loadctrl: LoadingController) {
+  jugadores: any;
+  equipos: any;
+
+  constructor(private sjug: SJugadoresService, private loadctrl: LoadingController, private sequi: SEquiposService) {
 
   }
   ionViewWillEnter() {
-    this.loadJugadores();
+    this.loaddatos();
   }
-  async loadJugadores(event?: InfiniteScrollCustomEvent) {
+  async loaddatos(event?: InfiniteScrollCustomEvent) {
 
     const loading = await this.loadctrl.create({
       message: "Cargando...",
       spinner: "bubbles"
     });
-    await loading.present(); 
+    await loading.present();
+    
     this.sjug.getAll().subscribe(
       (resp) => {
-        loading.dismiss();
         let liststring = JSON.stringify(resp);
-        console.log(liststring);
         this.jugadores = JSON.parse(liststring);
         console.log(this.jugadores);
-        event?.target.complete();
+        this.sequi.getAll().subscribe(
+          (r) => {
+            loading.dismiss();
+            let listequi = JSON.stringify(r);
+            this.equipos = JSON.parse(listequi);
+            console.log(this.equipos);
+            event?.target.complete();
+          }, (e) => {
+            console.log(e.message);
+            loading.dismiss;
+          });
       },
       (err) => {
-        console.log("hooolaaaa")
         console.log(err.message);
         loading.dismiss;
       }
