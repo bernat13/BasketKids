@@ -7,11 +7,11 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-list>
-        
-        <ion-item><ion-icon name="people-circle-outline"></ion-icon>Jugadores</ion-item>
-        <ion-item><ion-icon name="clipboard-outline"></ion-icon>Equipos</ion-item>
-        <ion-item><ion-icon name="basketball-outline"></ion-icon>Partidos</ion-item>
-        <ion-item><ion-icon name="settings-outline"></ion-icon>Configuración</ion-item>
+        <ion-item [routerLink]="['/']"><ion-icon name="home-outline"></ion-icon>Inicio</ion-item>
+        <ion-item [routerLink]="['/jugadores']"><ion-icon name="people-circle-outline"></ion-icon>Jugadores</ion-item>
+        <ion-item [routerLink]="['/equipos']"><ion-icon name="clipboard-outline"></ion-icon>Equipos</ion-item>
+        <ion-item [routerLink]="['/partidos']"><ion-icon name="basketball-outline"></ion-icon>Partidos</ion-item>
+        <ion-item [routerLink]="['/settings']"><ion-icon name="settings-outline"></ion-icon>Configuración</ion-item>
 
       </ion-list>
     </ion-content>
