@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { VistaPartidoPageRoutingModule } from './vista-partido-routing.module';
 
 import { VistaPartidoPage } from './vista-partido.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VistaPartidoPageRoutingModule
+    VistaPartidoPageRoutingModule,ComponentsModule
   ],
   declarations: [VistaPartidoPage]
 })

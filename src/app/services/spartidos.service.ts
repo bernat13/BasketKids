@@ -17,7 +17,7 @@ export class SpartidosService {
     return this.http.get<IPartidos>(`${environment.apiURL}/partidos`);
   }
 
-  get(id:number): Observable<IPartidos>
+  get(id:string): Observable<IPartidos>
   {
     return this.http.get<IPartidos>(`${environment.apiURL}/partidos/` + id);
   }

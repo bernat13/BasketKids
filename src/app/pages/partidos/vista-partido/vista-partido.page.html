@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vista-partido</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{titulo}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="partido!=undefined">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">vista-partido</ion-title>
+      <ion-title size="large">{{titulo}}</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+  <ion-card >
+    <ion-card-header>
+     
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+             
+             <itemcircle  nombre="{{partido.equipo_l}}" ruta="{{partido.logo_l}}"></itemcircle>   
+            </ion-col >
+            <ion-col size="6"> <div class="centergrid">  <ion-card-title>{{partido.marcador_l}} vs {{partido.marcador_v}}   </ion-card-title></div></ion-col>
+            <ion-col size="3">
+              <itemcircle  nombre="{{partido.equipo_v}}" ruta="{{partido.logo_v}}"></itemcircle>   
+            </ion-col>
+          </ion-row>
+        
+        </ion-grid>
+
+   
+      <ion-card-subtitle>{{partido.fecha}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+
+    <ion-item *ngFor="let j of partido.jugadas">
+      <ion-label>{{j.segundos}} segundos</ion-label>
+    
+      <ion-label>{{j.tipoJugada}}</ion-label>
+      <ion-label>{{j.nombreJugador}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

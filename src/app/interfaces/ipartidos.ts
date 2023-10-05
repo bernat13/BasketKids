@@ -1,7 +1,7 @@
 import { IJugada } from "./ijugada";
 
 export interface IPartidos {
-    idPartido:Number,
+    id:Number,
     fecha:Date,
     equipo_v:String,
     equipo_l:String,
