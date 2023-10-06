@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiURL:"http://basketkids.cancargol.net:3000"
+  apiURL:"http://basketkids.cancargol.net:3000",
+  hola:"hola"
 };

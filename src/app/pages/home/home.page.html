@@ -32,6 +32,7 @@
     </ion-card-header>
 
     <ion-card-content>
+      {{url}}
       <ion-grid>
         <ion-row>
           <ion-col *ngFor="let j of jugadores" [routerLink]="['/jugadores/',j.id]">

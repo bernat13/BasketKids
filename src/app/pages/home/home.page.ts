@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SJugadoresService } from '../../services/sjugadores.service';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { SEquiposService } from 'src/app/services/sequipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,12 @@ import { SEquiposService } from 'src/app/services/sequipos.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+url:string
   jugadores: any;
   equipos: any;
 
   constructor(private sjug: SJugadoresService, private loadctrl: LoadingController, private sequi: SEquiposService) {
-
+this.url =`${environment.apiURL}/equipos`;
   }
   ionViewWillEnter() {
     this.loaddatos();
