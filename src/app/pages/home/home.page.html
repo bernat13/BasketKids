@@ -20,25 +20,27 @@
         <ion-buttons>
 
           <ion-label>Jugadores </ion-label>
-          <ion-button slot="end">
-            <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+          <ion-button slot="start">
+            <!-- <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon> -->
+            <bk-add tipo="Jugador"></bk-add>
+            
           </ion-button>
+          <ion-button slot="end" [routerLink]="['/jugadores/']">Ver más <ion-icon  name="list-circle-outline"></ion-icon></ion-button>
 
         </ion-buttons>
 
 
       </ion-card-title>
-      <ion-card-subtitle>Edita tus jugadores</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      {{url}}
       <ion-grid>
         <ion-row>
           <ion-col *ngFor="let j of jugadores" [routerLink]="['/jugadores/',j.id]">
-            <itemcircle nombre="{{j.nombre}}" text="{{j.dorsal}}" email="{{j.email}}"  ></itemcircle>
+            <itemcircle nombre="{{j.nombre}}" text="{{j.dorsal}}" email="{{j.email}}"></itemcircle>
           </ion-col>
         </ion-row>
+       
       </ion-grid>
 
 
@@ -56,44 +58,57 @@
 
           <ion-label>Equipos </ion-label>
           <ion-button slot="end">
-            <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+            <bk-add tipo="Equipo"></bk-add>
           </ion-button>
+          <ion-button slot="end" [routerLink]="['/equipos/']">Ver más <ion-icon slot="icon-only" name="list-circle-outline"></ion-icon></ion-button>
+
 
         </ion-buttons>
 
 
       </ion-card-title>
-      <ion-card-subtitle>Edita tus equipos</ion-card-subtitle>
     </ion-card-header>
 
-   <ion-card-content>
+    <ion-card-content>
       <ion-grid>
         <ion-row>
           <ion-col *ngFor="let e of equipos" [routerLink]="['/equipos/',e.id]">
             <itemcircle nombre="{{e.nombre}}" ruta="{{e.logo}}" />
           </ion-col>
-         
-         
+
+
         </ion-row>
-        <ion-row>
-          <ion-col>ver todos</ion-col>
-        </ion-row>
+    
       </ion-grid>
 
 
 
-    </ion-card-content> 
+    </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Partidos</ion-card-title>
-      <ion-card-subtitle>Edita tus Partidos</ion-card-subtitle>
+      <ion-card-title>
+        
+
+        <ion-buttons>
+
+          <ion-label>Partidos </ion-label>
+          <ion-button slot="end">
+            <bk-add tipo="Partido"></bk-add>
+            
+          </ion-button>
+          <ion-button slot="end" [routerLink]="['/partidos/']">Ver más <ion-icon slot="icon-only" name="list-circle-outline"></ion-icon></ion-button>
+
+        </ion-buttons>
+
+      </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button [routerLink]="['/partidos']"> ver Partidos</ion-button>
-
-      <ion-button> añadir Partidos</ion-button>
+      
     </ion-card-content>
   </ion-card>
+  <!-- <ion-list *ngIf="personajes!=undefined">
+    <ion-item *ngFor="let personaje of personajes.results">{{personaje.name}}</ion-item>
+  </ion-list> -->
 </ion-content>

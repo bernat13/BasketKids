@@ -21,4 +21,9 @@ export class SpartidosService {
   {
     return this.http.get<IPartidos>(`${environment.apiURL}/partidos/` + id);
   }
+
+  add(data:any){
+
+    return this.http.post(`${environment.apiURL}/partidos/`,data);
+  }
 }

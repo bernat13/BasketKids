@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/partidos/vista-partido/vista-partido.module').then( m => m.VistaPartidoPageModule)
   },
   {
+    path: 'equipos',
+    loadChildren: () => import('./pages/equipos/list-equipos/list-equipos.module').then( m => m.ListEquiposPageModule)
+  },
+  {
     path: 'equipos/:id',
     loadChildren: () => import('./pages/equipos/detail-equipo/detail-equipo.module').then( m => m.DetailEquipoPageModule)
   },

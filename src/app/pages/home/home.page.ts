@@ -3,6 +3,7 @@ import { SJugadoresService } from '../../services/sjugadores.service';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { SEquiposService } from 'src/app/services/sequipos.service';
 import { environment } from 'src/environments/environment';
+import { SrandmService } from 'src/app/services/srandm.service';
 
 @Component({
   selector: 'app-home',
@@ -10,24 +11,33 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-url:string
+  url: string
   jugadores: any;
   equipos: any;
-
-  constructor(private sjug: SJugadoresService, private loadctrl: LoadingController, private sequi: SEquiposService) {
-this.url =`${environment.apiURL}/equipos`;
+  personajes: any;
+  constructor(private sjug: SJugadoresService, private srick: SrandmService, //private loadctrl: LoadingController,
+    private sequi: SEquiposService) {
+    this.url = `${environment.apiURL}/equipos`;
   }
+
   ionViewWillEnter() {
+    this.getcaracthers();
     this.loaddatos();
   }
-  async loaddatos(event?: InfiniteScrollCustomEvent) {
 
-    const loading = await this.loadctrl.create({
-      message: "Cargando...",
-      spinner: "bubbles"
-    });
-    await loading.present();
-    
+  getcaracthers(event?: any) {
+
+    this.srick.getAll().subscribe((res: any) => {
+      this.personajes = res;
+    }
+
+    );
+  }
+
+
+
+  loaddatos(event?: InfiniteScrollCustomEvent) {
+
     this.sjug.getAll().subscribe(
       (resp) => {
         let liststring = JSON.stringify(resp);
@@ -35,19 +45,12 @@ this.url =`${environment.apiURL}/equipos`;
         console.log(this.jugadores);
         this.sequi.getAll().subscribe(
           (r) => {
-            loading.dismiss();
             let listequi = JSON.stringify(r);
             this.equipos = JSON.parse(listequi);
             console.log(this.equipos);
             event?.target.complete();
-          }, (e) => {
-            console.log(e.message);
-            loading.dismiss;
           });
-      },
-      (err) => {
-        console.log(err.message);
-        loading.dismiss;
+
       }
     )
 

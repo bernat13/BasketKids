@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Md5 } from 'ts-md5/dist/cjs/md5';
+//import { Md5 } from 'ts-md5/dist/cjs/md5';
 
 @Component({
   selector: 'itemcircle',
@@ -24,7 +24,7 @@ export class ItemcircleComponent  implements OnInit {
 
 ngOnInit() {
    if (this.email != '') {
-    this.ruta = 'https://www.gravatar.com/avatar/' + Md5.hashStr(this.email);;
+  //  this.ruta = 'https://www.gravatar.com/avatar/' + Md5.hashStr(this.email);;
    }
    if (this.tamano == ''){
     console.log("undefined!!!");

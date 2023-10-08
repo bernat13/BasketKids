@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { SJugadoresService } from 'src/app/services/sjugadores.service';
 
@@ -13,7 +13,7 @@ export class DetailJugadorPage  {
   jugador: any;
   id: string;
   titulo ='';
-  constructor(private _route: ActivatedRoute, private sjug: SJugadoresService) {
+  constructor(private _route: ActivatedRoute, private sjug: SJugadoresService,private router: Router) {
     this.id = _route.snapshot.paramMap.get("id")!;
     this.nombre = this.id;
   }
@@ -38,4 +38,29 @@ this.sjug.get(this.id).subscribe(
   });
 }
 
+
+public alertButtons = [
+  {
+    text: 'Cancel',
+    role: 'cancel',
+    handler: () => {
+      console.log('Alert canceled');
+    },
+  },
+  {
+    text: 'OK',
+    role: 'confirm',
+    handler: () => {
+      this.sjug.delete(this.jugador.id).subscribe((s)=>{
+        this.router.navigate(['/']);
+
+      });
+     
+    },
+  },
+];
+
+setResult(ev:any) {
+  console.log(`Dismissed with role: ${ev.detail.role}`);
+}
 }

@@ -1,0 +1,46 @@
+<ion-icon id="open-modal" expand="block" slot="icon-only" name="add-circle-outline"></ion-icon>
+
+<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Añadir {{tipo}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+      <form [formGroup]="jugadorForm">
+        <ion-item>
+          <ion-label position="stacked">Introduce el nombre:</ion-label>
+          <ion-input type="text" placeholder="¿nombre?" formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Introduce año nacimiento:</ion-label>
+          <ion-input type="text" placeholder="¿año nacimiento?" formControlName="anyonacimiento"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Introduce el dorsal:</ion-label>
+          <ion-input type="text" placeholder="¿dorsal?" formControlName="dorsal"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label id="equipo" position="stacked">Introduce el Equipo ( {{listaequipos.length}}):</ion-label>
+          <ion-select aria-label="equipo" interface="action-sheet" placeholder="Selecciona el equipo" formControlName="idequipo">
+         <ion-select-option *ngFor="let e of listaequipos" value="{{e.id}}">
+           {{e.nombre}}
+          </ion-select-option> 
+          
+          
+          </ion-select>
+        </ion-item>
+      </form>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
