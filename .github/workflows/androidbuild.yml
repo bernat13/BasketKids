@@ -15,8 +15,6 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Setup AndroidStudio
-        run: snap install android-studio --classic
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
@@ -37,11 +35,13 @@ jobs:
       - name: Copy Android
         run: ionic capacitor copy android
 
-      - name: Build Android Dev APK
-        run: ionic capacitor build android
+      - name: Build Ionic Project
+        run: ionic build
+      # - name: Build Android Dev APK
+      #   run: ionic capacitor build android
 
-      - name: Build Android Release APK
-        run: ionic capacitor build android --release --prod 
+      # - name: Build Android Release APK
+      #   run: ionic capacitor build android --release --prod 
 
       - name: Generate the Android App Bundle
         working-directory: ./android/
