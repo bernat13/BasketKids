@@ -1,6 +1,9 @@
 name: Build Android
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -8,48 +11,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
-          java-version: 1.8
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-
-      - name: Install Ionic
-        run: npm install -g @ionic/cli
+          node-version: 19.x
 
       - name: Install app dependencies
         run: npm install
 
-      - name: Build Ionic App
-        run: ionic build
+      - name: Build Svelte app
+        run: npm run build:static
 
-      - name: Copy Android
-        run: ionic capacitor copy android
+      - name: Capacitor update
+        run: npx cap update
 
-      - name: Build Android Dev APK
-        run: ionic capacitor build android
+      - name: Capacitor copy
+        run: npx cap copy
 
-      - name: Build Android Release APK
-        run: ionic capacitor build android --release --prod
+      - name: Build app bundle
+        run: cd android && ./gradlew bundle
 
-      - name: Generate the Android App Bundle
-        working-directory: ./android/
-        run: ./gradlew bundle
+      - name: Extract Android signing key from env
+        run: |
+          echo "${{ secrets.RELEASE_KEYSTORE }}" > android/release.jks.base64
+          base64 -d android/release.jks.base64 > android/release.decrypted.jks
 
-      - name: Upload dev APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-dev
-          path: apk/app-debug.apk
+      - name: Sign dev build
+        run: jarsigner -keystore android/release.decrypted.jks -storepass "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" -signedjar ./android/app/build/outputs/bundle/release/app-release-signed.aab ./android/app/build/outputs/bundle/release/app-release.aab release
 
       - name: Upload release bundle
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: app-release
-          path: apk/app.aab
+          path: android/app/build/outputs/bundle/release/app-release-signed.aab
+          retention-days: 60
