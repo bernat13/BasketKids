@@ -34,8 +34,6 @@ export class HomePage {
     );
   }
 
-
-
   loaddatos(event?: InfiniteScrollCustomEvent) {
 
     this.sjug.getAll().subscribe(
@@ -53,7 +51,5 @@ export class HomePage {
 
       }
     )
-
-
   }
 }

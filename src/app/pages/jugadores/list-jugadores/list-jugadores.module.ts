@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ListJugadoresPageRoutingModule } from './list-jugadores-routing.module';
 
 import { ListJugadoresPage } from './list-jugadores.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListJugadoresPageRoutingModule
+    ListJugadoresPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ListJugadoresPage]
 })

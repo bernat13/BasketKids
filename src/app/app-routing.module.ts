@@ -14,11 +14,11 @@ const routes: Routes = [
   {
     path: 'partidos',
     loadChildren: () => import('./pages/partidos/list-partidos/list-partidos.module').then( m => m.ListPartidosPageModule)
-  },
-  {
-    path: 'partidos/:id',
-    loadChildren: () => import('./pages/partidos/vista-partido/vista-partido.module').then( m => m.VistaPartidoPageModule)
-  },
+   },
+  // {
+  //   path: 'partidos/:id',
+  //   loadChildren: () => import('./pages/partidos/vista-partido/vista-partido.module').then( m => m.VistaPartidoPageModule)
+  // },
   {
     path: 'equipos',
     loadChildren: () => import('./pages/equipos/list-equipos/list-equipos.module').then( m => m.ListEquiposPageModule)
@@ -30,12 +30,21 @@ const routes: Routes = [
 
   {
     path: 'jugadores',
-    loadChildren: () => import('./jugadores/list-jugadores/list-jugadores.module').then( m => m.ListJugadoresPageModule)
+    loadChildren: () => import('./pages/jugadores/list-jugadores/list-jugadores.module').then( m => m.ListJugadoresPageModule)
   },
 
   {
     path: 'jugadores/:id',
-    loadChildren: () => import('./jugadores/detail-jugador/detail-jugador.module').then( m => m.DetailJugadorPageModule)
+    loadChildren: () => import('./pages/jugadores/detail-jugador/detail-jugador.module').then( m => m.DetailJugadorPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+
+  {
+    path: 'partidos/:id',
+    loadChildren: () => import('./pages/partidos/detail-partido/detail-partido.module').then( m => m.DetailPartidoPageModule)
   }
   // {
   //   path: 'partidos',

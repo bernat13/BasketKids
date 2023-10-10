@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Partido
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> Partido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngIf="partido!=undefined">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <itemcircle nombre="{{partido.equipo_l}}" ruta="{{partido.logo_l}}"></itemcircle>
+          </ion-col>
+          <ion-col size="6">
+            <div class="centergrid"> <ion-card-title>{{partido.marcador_l}} vs {{partido.marcador_v}} </ion-card-title>
+            </div>
+          </ion-col>
+          <ion-col size="3">
+            <itemcircle nombre="{{partido.equipo_v}}" ruta="{{partido.logo_v}}"></itemcircle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-subtitle>{{partido.fecha}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        <ion-button (click)="swiperactive(0)">Resumen</ion-button>
+        <ion-button  (click)="swiperactive(1)">EnVivo</ion-button>
+        <ion-button (click)="swiperactive(2)">Jugadas</ion-button>
+      </ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngIf="partido!=undefined">
+    <ion-card-content>
+
+      <swiper-container   #swiper>
+        <swiper-slide>
+          <ion-title>Resumen</ion-title> 
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el
+          texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se
+          dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
+          libro
+          de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
+          electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las
+          hojas
+          "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como
+          por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum
+
+        </swiper-slide>
+
+        <swiper-slide>
+          <ion-title>en vivo</ion-title> 
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el
+          texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se
+          dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
+          libro
+          de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
+          electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las
+          hojas
+          "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como
+          por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum
+
+        </swiper-slide>
+        <swiper-slide>
+           <ion-title>Jugadas</ion-title> 
+           <ion-list>
+
+            <ion-item *ngFor="let j of partido.jugadas">
+              <ion-label>{{j.segundos}} segundos</ion-label>
+            
+              <ion-label>{{j.tipoJugada}}</ion-label>
+              <ion-label>{{j.nombreJugador}}</ion-label>
+            </ion-item>
+          </ion-list>
+
+        </swiper-slide>
+
+      </swiper-container>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

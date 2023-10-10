@@ -1,6 +1,6 @@
-<ion-icon id="open-modal" expand="block" slot="icon-only" name="add-circle-outline"></ion-icon>
+<ion-icon id="open-modal_{{tipo}}" expand="block" slot="icon-only" name="add-circle-outline"></ion-icon>
 
-<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+<ion-modal trigger="open-modal_{{tipo}}" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -15,7 +15,7 @@
     </ion-header>
     <ion-content class="ion-padding">
 
-      <form [formGroup]="jugadorForm">
+      <form [formGroup]="jugadorForm" *ngIf="tipo=='Jugador'">
         <ion-item>
           <ion-label position="stacked">Introduce el nombre:</ion-label>
           <ion-input type="text" placeholder="¿nombre?" formControlName="nombre"></ion-input>
