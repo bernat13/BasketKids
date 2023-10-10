@@ -38,12 +38,12 @@ jobs:
       - name: Build Android Dev APK
         run: ionic capacitor build android --no-open
 
-      # - name: Build Android Release APK
-      #   run: ionic capacitor build android --release --prod 
+      - name: Build Android Release APK
+        run: ionic capacitor build android --release --prod  --no-open
 
-      - name: Generate the Android App Bundle
-        working-directory: ./android/
-        run: ./gradlew bundle
+      # - name: Generate the Android App Bundle
+      #   working-directory: ./android/
+      #   run: ./gradlew bundle
 
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
@@ -51,8 +51,8 @@ jobs:
           name: app-dev
           path: apk/app-debug.apk
 
-      - name: Upload release bundle
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release
-          path: apk/app.aab
+      # - name: Upload release bundle
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: app-release
+      #     path: apk/app.aab
