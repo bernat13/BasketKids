@@ -4,9 +4,21 @@
 
 export const environment = {
   production: false,
-  apiURL:"http://basketkids.cancargol.net:3000",
-  hola:"hola"
+  apiURL: "http://basketkids.cancargol.net:3000",
+  hola: "hola",
+  firebaseConfig: {
+    apiKey: "AIzaSyDUQm6S7hDDAaSeI4DJlHTlVDEiMYrsiHo",
+    authDomain: "basketkids.firebaseapp.com",
+    projectId: "basketkids",
+    storageBucket: "basketkids.appspot.com",
+    messagingSenderId: "133349960838",
+    appId: "1:133349960838:web:8c47eba50540d8d091b507",
+    measurementId: "G-1F8J6FZL5X"
+  }
+
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

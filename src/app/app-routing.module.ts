@@ -7,8 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
@@ -45,7 +49,8 @@ const routes: Routes = [
   {
     path: 'partidos/:id',
     loadChildren: () => import('./pages/partidos/detail-partido/detail-partido.module').then( m => m.DetailPartidoPageModule)
-  }
+  },
+
   // {
   //   path: 'partidos',
   //   loadChildren: () => import('./partidos/partidos.module').then( m => m.PartidosPageModule)

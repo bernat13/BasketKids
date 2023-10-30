@@ -1,0 +1,16 @@
+<ion-header  class="ion-no-border" >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" *ngIf="menu!='hide'">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{titulo}}
+      <div class="admin" *ngIf="subtitulo!=''">
+        <small>{{subtitulo}}</small>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
