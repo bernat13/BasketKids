@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs'
 import {HttpClient} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
-import { IJugadores } from '../interfaces/ijugadores';
+import { IJugador } from '../interfaces/ijugador';
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +11,22 @@ export class SJugadoresService {
 
   constructor(private http:HttpClient) { }
 
-  getAll(): Observable<IJugadores>
+  getAll(): Observable<IJugador[]>
   {
-    return this.http.get<IJugadores>(`${environment.apiURL}/jugadores`);
+    return this.http.get<IJugador[]>(`${environment.apiURL}/jugadores`);
   }
-  get(id:string): Observable<IJugadores>
+  get(id:string): Observable<IJugador>
   {
-    return this.http.get<IJugadores>(`${environment.apiURL}/jugadores/` + id);
+    return this.http.get<IJugador>(`${environment.apiURL}/jugadores/` + id);
   }
   delete (id:string){
     console.log("vamos a borrar a ", id);
-    return this.http.delete<IJugadores>(`${environment.apiURL}/jugadores/` + id);
+    return this.http.delete<IJugador>(`${environment.apiURL}/jugadores/` + id);
 
   }
 
-  update (id:string,data:IJugadores){
-    return this.http.put<IJugadores>(`${environment.apiURL}/jugadores/` + id,data);
+  update (id:string,data:IJugador){
+    return this.http.put<IJugador>(`${environment.apiURL}/jugadores/` + id,data);
 
   }
   add(data:any){

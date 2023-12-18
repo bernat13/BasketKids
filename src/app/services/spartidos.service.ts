@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IPartidos } from '../interfaces/ipartidos';
 import { environment } from 'src/environments/environment';
+import { IPartido } from '../interfaces/ipartido';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +12,17 @@ export class SpartidosService {
   
   constructor(private http:HttpClient) { }
 
-  getAll(): Observable<IPartidos>
+  getAll(): Observable<IPartido[]>
   {
-    return this.http.get<IPartidos>(`${environment.apiURL}/partidos`);
+    return this.http.get<IPartido[]>(`${environment.apiURL}/partidos`);
   }
 
-  get(id:string): Observable<IPartidos>
+  get(id:string): Observable<IPartido>
   {
-    return this.http.get<IPartidos>(`${environment.apiURL}/partidos/` + id);
+    return this.http.get<IPartido>(`${environment.apiURL}/partidos/` + id);
   }
 
-  add(data:any){
+  add(data:IPartido){
 
     return this.http.post(`${environment.apiURL}/partidos/`,data);
   }
